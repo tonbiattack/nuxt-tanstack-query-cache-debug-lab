@@ -21,11 +21,10 @@ const productsQuery = useQuery({
 const renameMutation = useMutation({
   mutationFn: (input: RenameProductInput) => props.api.updateName(input),
   onSuccess: async () => {
-    // バグ: 一覧の実キーは ['products', { scope: 'catalog' }] だが、
-    // exact: true により ['products'] は一致しない。
+    // ['products'] を接頭辞として使い、表示中の
+    // ['products', { scope: 'catalog' }] も無効化して再取得する。
     await queryClient.invalidateQueries({
       queryKey: productKeys.all,
-      exact: true,
     })
   },
 })
