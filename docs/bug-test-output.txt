@@ -1,0 +1,33 @@
+$ vitest run
+
+ RUN  v3.2.4 /home/ubuntu/nuxt-tanstack-query-cache-debug-lab
+
+ ❯ tests/product-list.cache.test.ts (1 test | 1 failed) 229ms
+   × 製品名の更新後に一覧キャッシュを同期する契約 > 更新APIとサーバー正本が更新済みなら、画面も更新済みの製品名を表示する 229ms
+     → expected '出荷準備中' to contain '出荷準備中（更新済み）'
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/product-list.cache.test.ts > 製品名の更新後に一覧キャッシュを同期する契約 > 更新APIとサーバー正本が更新済みなら、画面も更新済みの製品名を表示する
+AssertionError: expected '出荷準備中' to contain '出荷準備中（更新済み）'
+
+Expected: [32m"出荷準備中[7m（更新済み）[27m"[39m
+Received: [31m"出荷準備中"[39m
+
+ ❯ vi.waitFor.timeout tests/product-list.cache.test.ts:84:68
+     82|     await vi.waitFor(
+     83|       () => {
+     84|         expect(wrapper.get('[data-testid="product-list"]').text()).toC…
+       |                                                                    ^
+     85|       },
+     86|       { timeout: 150 },
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed (1)
+   Start at  04:43:59
+   Duration  809ms (transform 178ms, setup 0ms, collect 242ms, tests 229ms, environment 203ms, prepare 37ms)
+
+[ELIFECYCLE] Test failed. See above for more details.
