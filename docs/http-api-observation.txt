@@ -1,0 +1,6 @@
+GET before:
+[{"id":"p-1","name":"出荷準備中","updatedAt":"2026-08-18T00:00:00.000Z"}]
+PATCH response:
+{"id":"p-1","name":"出荷準備中（更新済み）","updatedAt":"2026-08-18T04:46:15.714Z"}
+GET after:
+[{"id":"p-1","name":"出荷準備中（更新済み）","updatedAt":"2026-08-18T04:46:15.714Z"}]
